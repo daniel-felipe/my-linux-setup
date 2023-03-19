@@ -2,6 +2,8 @@
 
 source './setup/includes/colors.sh'
 
+BASE_DIR=$(pwd)
+
 echo "Which is your base distro?"
 echo "[1] :: Ubuntu"
 echo "[2] :: Arch"
