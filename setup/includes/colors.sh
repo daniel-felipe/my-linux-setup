@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ERROR='\033[0;31m'
+INFO='\033[0;34m'
+SUCCESS='\033[0;32m'
+WARNING='\033[0;33m'
+ENDCOLOR="\033[0m"
