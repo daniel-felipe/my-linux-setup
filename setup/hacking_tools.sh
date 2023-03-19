@@ -6,8 +6,13 @@ CURRENT_PATH=$(pwd)
 
 # --- [ INSTALLING GO ]
 echo -e "${INFO}[+] Installing go \033[0m"
+wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz &> /dev/null
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> "$HOME/.profile" && source "$HOME/.profile"
+rm go1.20.2.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile && source ~/.profile
+
+# --- [ SETTING UP TOOLS PATH ]
+echo "export PATH=$PATH:$HOME/go/bin" >> ~/.zshrc
 
 # --- [ INSTALLING SUBFINDER ]
 echo -e "${INFO}[+] Installing SUBFINDER \033[0m"
