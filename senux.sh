@@ -16,7 +16,7 @@ case $distro in
         source './setup/arch_setup.sh'
 	    ;;
     *)
-        echo "Bye!"; exit
+        echo "Bye!"; exit;
 	    ;;
 esac
 
