@@ -1,0 +1,12 @@
+software-properties-common
+ca-certificates
+lsb-release
+apt-transport-https
+php8.2
+php8.2-mysql 
+php8.2-mbstring 
+php8.2-xml 
+php8.2-curl 
+curl
+wget
+plank

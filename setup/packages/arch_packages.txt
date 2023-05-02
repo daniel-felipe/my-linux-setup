@@ -1,3 +1,6 @@
+git
+wget
+curl
 composer
 dbeaver
 discord
@@ -28,5 +31,4 @@ ttf-jetbrains-mono-nerd
 ttf-liberation
 neovim
 zsh
-curl
 exa
