@@ -3,20 +3,31 @@
 source './setup/includes/utils.sh'
 
 # --- [ INSTALLING GO ]
-echo -e "${INFO}[+] Installing go \033[0m"
-wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz &> /dev/null
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "$BASE_DIR/go1.20.2.linux-amd64.tar.gz"
-rm "$BASE_DIR/go1.20.2.linux-amd64.tar.gz"
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile && source ~/.profile
+go version &> /dev/null
+
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing go \033[0m"
+    wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz &> /dev/null
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "$BASE_DIR/go1.20.2.linux-amd64.tar.gz"
+    rm "$BASE_DIR/go1.20.2.linux-amd64.tar.gz"
+    echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile && source ~/.profile
+fi
 
 # --- [ SETTING UP TOOLS PATH ]
-echo "export PATH=$PATH:$HOME/go/bin" >> ~/.zshrc
+grep "$HOME/go/bin" ~/.zshrc &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "export PATH=$PATH:$HOME/go/bin" >> ~/.zshrc
+    source ~/.zshrc
+fi
 
 # --- [ INSTALLING SUBFINDER ]
-echo -e "${INFO}[+] Installing SUBFINDER \033[0m"
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 subfinder --version &> /dev/null
-last_task_status
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing SUBFINDER \033[0m"
+    go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+    subfinder --version &> /dev/null
+    last_task_status
+fi
 
 # --- [ INSTALLING HTTPX ]
 echo -e "${INFO}[+] Installing HTTPX \033[0m"
