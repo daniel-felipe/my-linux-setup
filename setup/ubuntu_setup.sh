@@ -17,7 +17,8 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
 # --- [ INSTALLING NODEJS ]
-curl -o https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.profile 
 nvm install node
 
 # --- [ INSTALLING VSCODE ]
