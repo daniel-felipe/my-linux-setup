@@ -14,4 +14,6 @@ sudo pacman -S - < setup/packages/arch_packages.txt --needed
 echo "[+] Istalling Oh My Zsh"
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-last_task_status
+
+# --- [ INSTALLING STARTSHIP ]
+curl -sS https://starship.rs/install.sh | sh

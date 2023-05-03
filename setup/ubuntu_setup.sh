@@ -25,8 +25,15 @@ nvm install node
 wget https://az764295.vo.msecnd.net/stable/b7886d7461186a5eac768481578c1d7ca80e2d21/code_1.77.1-1680651665_amd64.deb -O vscode.deb
 sudo dpkg -i ./vscode.deb
 
+# -- [ INSTALLING TABLEPLUS ]
+wget -qO - https://deb.tableplus.com/apt.tableplus.com.gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/tableplus-archive.gpg > /dev/null
+sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"
+sudo apt update -y && sudo apt install tableplus -y
+
 # --- [ INSTALLING OH MY ZSH ]
 echo "[+] Istalling Oh My Zsh"
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-last_task_status
+
+# --- [ INSTALLING STARTSHIP ]
+curl -sS https://starship.rs/install.sh | sh

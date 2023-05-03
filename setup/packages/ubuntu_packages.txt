@@ -10,3 +10,5 @@ php8.2-curl
 curl
 wget
 plank
+tmux
+zsh
