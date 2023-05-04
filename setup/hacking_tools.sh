@@ -4,7 +4,6 @@ source './setup/includes/utils.sh'
 
 # --- [ INSTALLING GO ]
 go version &> /dev/null
-
 if [ $? -ne 0 ]; then
     echo -e "${INFO}[+] Installing go \033[0m"
     wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz &> /dev/null
@@ -30,25 +29,46 @@ if [ $? -ne 0 ]; then
 fi
 
 # --- [ INSTALLING HTTPX ]
-echo -e "${INFO}[+] Installing HTTPX \033[0m"
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 httpx --version &> /dev/null
-last_task_status
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing HTTPX \033[0m"
+    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+    httpx --version &> /dev/null
+    last_task_status
+fi
 
 # --- [ INSTALLING NAABU ]
-echo -e "${INFO}[+] Installing NAABU \033[0m"
-go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 naabu --version &> /dev/null
-last_task_status
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing NAABU \033[0m"
+    go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+    naabu --version &> /dev/null
+    last_task_status
+fi
 
 # --- [ INSTALLING NOTIFY ]
-echo -e "${INFO}[+] Installing NOTIFY \033[0m"
-go install -v github.com/projectdiscovery/notify/cmd/notify@latest
 notify --version &> /dev/null
-last_task_status
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing NOTIFY \033[0m"
+    go install -v github.com/projectdiscovery/notify/cmd/notify@latest
+    notify --version &> /dev/null
+    last_task_status
+fi
 
 # --- [ INSTALLING NUCLEI ]
-echo -e "${INFO}[+] Installing NUCLEI \033[0m"
-go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 nuclei --version &> /dev/null
-last_task_status
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing NUCLEI \033[0m"
+    go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+    nuclei --version &> /dev/null
+    last_task_status
+fi
+
+# --- [ INSTALLING INTERACT.SH ]
+interactsh-client --version &> /dev/null
+if [ $? -ne 0 ]; then
+    echo -e "${INFO}[+] Installing NUCLEI \033[0m"
+    go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest
+    nuclei --version &> /dev/null
+    last_task_status
+fi
