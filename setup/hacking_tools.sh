@@ -67,7 +67,7 @@ fi
 # --- [ INSTALLING INTERACT.SH ]
 interactsh-client --version &> /dev/null
 if [ $? -ne 0 ]; then
-    echo -e "${INFO}[+] Installing NUCLEI \033[0m"
+    echo -e "${INFO}[+] Installing INTERACT.SH \033[0m"
     go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest
     nuclei --version &> /dev/null
     last_task_status
