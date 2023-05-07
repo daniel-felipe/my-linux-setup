@@ -22,4 +22,7 @@ case $distro in
 	    ;;
 esac
 
+# [ GIT LIBSECRET ]
+git config --global credential.helper libsecret
+
 source './setup/hacking_tools.sh'

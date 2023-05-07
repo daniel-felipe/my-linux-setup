@@ -2,7 +2,6 @@ git
 wget
 curl
 composer
-dbeaver
 discord
 docker
 docker-compose
@@ -32,3 +31,7 @@ ttf-liberation
 neovim
 zsh
 exa
+go
+python
+pip
+obsidian
